@@ -88,7 +88,6 @@ class BotSender(threading.Thread):
     def __init__(self):
         threading.Thread.__init__(self)
 
-
     def run(self):
         while True:
             print('hey')
@@ -105,9 +104,11 @@ def main():
     app_1.daemon = True
     app_1.start()
 
-    # app_2 = BotSender()
-    # app_2.daemon = True
-    # app_2.start()
+
+    app_2 = BotSender()
+    app_2.daemon = True
+    app_2.start()
+    app_2.join()
 
 
 if __name__ == '__main__':
